@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeLeaf.org">
+<html>
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="layout/fragments/nav.html :: nav"></div>
+<div class="text-center" style="margin:5rem 0; flex: 1; height:60vh;">
+    <p style="font-size: 3rem" th:text="'정확도: '+ ${dto.prob} + '%'"  >정확도</p>
+    <div style="margin: 5rem 10rem 0rem 0rem">
+        <img th:src="@{${dto.src}}" class="rounded float-start" alt="disease" style="float: left; margin-left: 10rem">
+        <p style="font-size: 3rem" th:text="${dto.d_name}">질병명</p>
+        <p style="font-size: 2rem" th:text="${dto.solution}">설명</p>
+    </div>
+</div>
+<div th:replace="layout/fragments/footer.html :: footer"></div>
+</body>
+</html>

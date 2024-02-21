@@ -1,0 +1,85 @@
+buildscript {
+    ext {
+        queryDslVersion = "5.0.0"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.9'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+
+    //QueryDSL 2 QueryDSL plugins 추가
+    id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+}
+
+group = 'tomato'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // MariaDB
+    implementation group: 'org.json', name: 'json', version: '20090211'
+
+    //QueryDSL 3 QueryDSL Dependencies 추가
+    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-core:${queryDslVersion}"
+    //Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
+    //Validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    //JWT
+//    testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+}
+
+//test {
+//    useJUnitPlatform()
+//}
+
+//QueryDSL 4 QueryDSL이 사용할 경로 설정
+def querydslDir = "$buildDir/generated/querydsl"
+
+//JPA 사용 여부와 사용할 경로 설정
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+
+//build 할 때 사용할 sourceSet 추가
+sourceSets {
+    main.java.srcDir querydslDir
+}
+
+//QueryDSL 컴파일할 때 사용할 욥션 설정
+compileQuerydsl {
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+//QueryDSL이 compileClassPath를 상속하도록 설정
+configurations {
+    complieOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
+}
+//QueryDSL 4 end

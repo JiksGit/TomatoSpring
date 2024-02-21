@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+        crossorigin="anonymous">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container p {
+      margin-bottom: 10px;
+    }
+
+    .container p span {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+<div th:replace="layout/fragments/nav.html :: nav"></div>
+<h1>My Page</h1>
+
+<div class="container" style="height: 20rem">
+  <h4>Username : <span th:text="${user.username}"></span></h4>
+  <h4>Nickname : <span th:text="${user.nickname}"></span></h4>
+  <h4>Email : <span th:text="${user.email}"></span></h4>
+  <h4>Role : <span th:text="${user.role}"></span></h4>
+  <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/auth/mypageUpdate}">
+    <button class="btn btn-outline-secondary my-2 my-sm-0 btn-sm" type="submit">개인 정보 수정</button>
+  </form>
+</div>
+
+<footer th:replace="layout/fragments/footer.html :: footer"></footer>
+
+</body>
+</html>

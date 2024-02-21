@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="nav">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a style="color: green" class="navbar-brand" href="/">TomaTo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/map">Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/article">Board</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="isAnonymous()" class="nav-link"  href="/auth/register">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-right: 1rem;">
+        <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/auth/mypage}">
+            <button sec:authorize="isAuthenticated()" class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Mypage</button>
+        </form>
+    </div>
+    <div>
+        <button sec:authorize="isAnonymous()" onclick = "location.href = '/auth/login'" class="btn btn-outline-success my-2 my-sm-0 btn-sm">Login</button>
+        <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/auth/logout}">
+            <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+        </form>
+    </div>
+</nav>
+</div>
+</body>
+</html>

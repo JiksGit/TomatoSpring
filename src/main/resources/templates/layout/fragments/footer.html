@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        footer {
+            position : relative;
+            transform : translateY(-100%);
+        }
+    </style>
+</head>
+<body>
+<footer th:fragment="footer" style="background-color:white; height: 20vh">
+    <hr class="my-4">
+    <div class="container2">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>About Us</h3>
+                <p> We made the project as Gachon University students. Provides classification of tomato leaf diseases.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Connect With Us</h3>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li>Won SeoungHyeon</a></li>
+                    <li>Yang HyunJik</a></li>
+                    <li>Kim Donghyeon</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3><img src="/image/github.png" alt="깃허브 로고" style="width: 2rem; height: 2rem;">Contact Us</h3>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li><a href="https://github.com/hyeon8571">Seounghyeon's Github</a></li>
+                    <li><a href="https://github.com/nobleviper">Hyunjik's Github</a></li>
+                    <li><a href="https://github.com/whffu762">Donghyeon's Github</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p>&copy; 2023 Tomato Leaf Classification Project</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

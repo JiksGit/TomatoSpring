@@ -17,7 +17,7 @@
 
 -------
 #### 2. 회원가입 및 로그인 기능
-<img width="739" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
+<img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
 <img width="725" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
 
 -------

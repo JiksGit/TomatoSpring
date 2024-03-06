@@ -31,8 +31,8 @@
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb)
 
 -------
-#### 데이터베이스 구조
+//#### 데이터베이스 구조
 
 -------
-#### API 명세서
+//#### API 명세서
 

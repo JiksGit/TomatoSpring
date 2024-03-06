@@ -18,12 +18,12 @@
 -------
 #### 2. 회원가입 및 로그인 기능
 <img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
-<img width="725" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
+<img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
 
 -------
 #### 3. 게시판 작성 및 댓글 기능
-<img width="848" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
-<img width="1021" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
+<img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
+<img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
 
 
 -------

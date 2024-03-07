@@ -19,6 +19,7 @@
 3. 게시판 페이지, 검색 기능 추가
 
 Mac : flask 코드 git push
+
 Desktop : aws 재연결
 
 -------

@@ -11,6 +11,13 @@
 
 4. 주변 마트 검색 기능(Kakao map API 사용)
 
+--------
+
+#### 추가해야할 기능
+1. JWT 토큰 사용
+2. 로그인 회원가입 창 개선
+3. 게시판 페이지, 검색 기능 추가
+
 -------
 #### 1. 토마토 잎 질병 분석 및 해결 방안 제시
 <img width="1423" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/18856706-28d6-4ee1-99c5-1c1fc1053b41">

@@ -40,7 +40,7 @@ public class Article extends BaseTime{
     @Column(columnDefinition = "integer default 0", nullable = false)
     private int view;
 
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL) // article 엔티티의 comments 필드의 주인은 반대편(commnet 엔티티)의 article필드
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL) // article 엔티티의 comments 필드의 주인은 반대편(comment 엔티티)의 article 필드
     private List<Comment> comments;
 
 

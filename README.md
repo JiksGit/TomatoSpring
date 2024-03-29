@@ -25,7 +25,6 @@
 <img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
 <img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
 
-
 -------
 #### 4. 주변 농협마트 검색 기능
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb)

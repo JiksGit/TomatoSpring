@@ -16,11 +16,12 @@
 -------
 //#### 데이터베이스 구조
 
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/cae25342-b6d8-4600-9a17-3c550e2a4808)
+![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/4dd1c1e8-2177-41a2-96e4-3d35e67dd2e2)
 
 
 -------
 //#### API 명세서
+
 
 -------
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/ebd5e2df-8c0a-45e2-a4a1-aae74fcc1e10)

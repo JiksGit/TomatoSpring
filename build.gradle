@@ -32,7 +32,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // MariaDB
@@ -77,7 +79,7 @@ compileQuerydsl {
 
 //QueryDSL이 compileClassPath를 상속하도록 설정
 configurations {
-    complieOnly {
+    compileOnly {
         extendsFrom annotationProcessor
     }
     querydsl.extendsFrom compileClasspath

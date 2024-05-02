@@ -1,5 +1,6 @@
 package tomato.classifier.api;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ public class CommentApiController {
     private final CommentService commentService;
 
     @Transactional
+    @ApiOperation(value = "댓글 작성")
     @PostMapping("/article/{articleId}/comment-add")
     public ResponseEntity<CommentDto> write(@PathVariable Integer articleId, @RequestBody CommentDto commentDto) {
 
@@ -25,6 +27,7 @@ public class CommentApiController {
     }
 
     @Transactional
+    @ApiOperation(value = "댓글 수정")
     @PatchMapping("/comment-edit/{commentId}")
     public ResponseEntity<CommentDto> edit(@PathVariable Integer commentId, @RequestBody CommentDto commentDto) {
 
@@ -35,6 +38,7 @@ public class CommentApiController {
 
 
     @Transactional
+    @ApiOperation(value = "댓글 삭제")
     @DeleteMapping("/comment-delete/{commentId}")
     public ResponseEntity<CommentDto> delete(@PathVariable Integer commentId, @RequestBody CommentDto commentDto) {
 

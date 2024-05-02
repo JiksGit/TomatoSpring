@@ -1,5 +1,6 @@
 package tomato.classifier.controller;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -40,6 +41,7 @@ public class ArticleController {
 
     private final ArticleService articleService;
 
+    @ApiOperation(value = "게시글 메인 페이지")
     @GetMapping()
     public String articleMain(Model model) {
 
@@ -50,6 +52,7 @@ public class ArticleController {
         return "article/articleMain";
     }
 
+    @ApiOperation(value = "게시글 작성 페이지")
     @GetMapping("/add")
     public String articleAdd(Model model) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -60,6 +63,7 @@ public class ArticleController {
         return "article/articleAdd";
     }
 
+    @ApiOperation(value = "게시글 상세 페이지")
     @GetMapping("/{articleId}")
     public String articleDetail(@PathVariable Integer articleId, Model model, HttpSession session) {
 
@@ -88,6 +92,7 @@ public class ArticleController {
     }
 
 
+    @ApiOperation(value = "게시글 수정 페이지")
     @GetMapping("/edit")
     public String edit(@RequestParam Integer articleId, Model model) {
         //예외처리 할 것

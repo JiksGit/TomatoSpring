@@ -1,5 +1,6 @@
 package tomato.classifier.api;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class ArticleApiController {
 
     private final ArticleService articleService;
 
+    @ApiOperation(value = "게시글 추가")
     @PostMapping("/add")
     public ResponseEntity<ArticleDto> write(@RequestBody ArticleDto articleDto) {
 
@@ -27,6 +29,7 @@ public class ArticleApiController {
         return ResponseEntity.status(HttpStatus.OK).body(write);
     }
 
+    @ApiOperation(value = "게시글 수정")
     @PatchMapping("/edit/{articleId}")
     public ResponseEntity<ArticleDto> edit(@PathVariable Integer articleId, @RequestBody ArticleDto articleDto) {
 
@@ -35,6 +38,7 @@ public class ArticleApiController {
         return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
     }
 
+    @ApiOperation(value = "게시글 삭제")
     @DeleteMapping("/delete/{articleId}")
     public ResponseEntity<Article> delete(@PathVariable Integer articleId) {
 

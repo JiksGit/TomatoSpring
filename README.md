@@ -20,11 +20,12 @@
 
 
 -------
-#### API 명세서
+#### API 명세서(Swagger 사용)
 
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/46f91437-d75b-4b46-b7b5-18400ff8264d)
+![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/6bbf5e40-2bfc-4208-ae7b-66b9512c7045)
+![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/5192135e-0cba-4c96-a36c-6ef3263bfd68)
 
-<img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/207b575a-085c-4fe0-a74b-3319ac90aa6f">
+
 
 -------
 #### 개발 도구

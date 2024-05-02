@@ -14,6 +14,16 @@
 4. 주변 마트 검색 기능(Kakao map API 사용)
 
 -------
+//#### 데이터베이스 구조
+
+-------
+//#### API 명세서
+
+-------
+![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/ebd5e2df-8c0a-45e2-a4a1-aae74fcc1e10)
+
+
+-------
 #### 1. 토마토 잎 질병 분석 및 해결 방안 제시
 <img width="1423" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/18856706-28d6-4ee1-99c5-1c1fc1053b41">
 
@@ -42,11 +52,4 @@
 Mac : flask 코드 git push
 
 Desktop : aws 재연결
-
--------
-
-//#### 데이터베이스 구조
-
--------
-//#### API 명세서
 

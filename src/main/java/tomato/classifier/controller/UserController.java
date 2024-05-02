@@ -1,5 +1,6 @@
 package tomato.classifier.controller;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,19 +48,19 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    //회원가입
+    @ApiOperation(value = "회원가입 페이지")
     @GetMapping("/register")
     public String signup(@ModelAttribute("userCreateForm") UserCreateForm userCreateForm) {
         return "auth/register";
     }
 
-    //로그인
+    @ApiOperation(value = "로그인 페이지")
     @GetMapping("/login")
     public String login() {
         return "auth/login";
     }
 
-    //회원가입 post
+    @ApiOperation(value = "회원가입 요청")
     @PostMapping("/register")
     public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -88,7 +89,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    //마이페이지 get
+    @ApiOperation(value = "마이페이지")
     @GetMapping("/mypage")
     public String mypage(Model model){
          // 오류발생. 필요에 따라 사용자 정보를 추가로 활용하려면 getPrincipal()을 사용하고, 간단한 사용자 이름 또는 ID가 필요하면 getName()을 사용
@@ -106,7 +107,7 @@ public class UserController {
         return "auth/mypage";
     }
 
-    //마이페이지 수정 Get
+    @ApiOperation(value = "마이페이지 수정")
     @GetMapping("/mypageUpdate")
     public String mypageUpdate(@ModelAttribute("userCreateForm") UserCreateForm userCreateForm, Model model){
         Authentication loggedInUser = SecurityContextHolder.getContext().getAuthentication();
@@ -122,7 +123,7 @@ public class UserController {
         return "auth/mypageUpdate";
     }
 
-    //마이페이지 수정 Post
+    @ApiOperation(value = "마이페이지 수정 요청")
     @PostMapping("/mypageUpdate")
     public String mypageupdate(@Valid UserCreateForm userCreateForm, BindingResult bindingResult, @AuthenticationPrincipal User currentUser) {
         if (bindingResult.hasErrors()) {

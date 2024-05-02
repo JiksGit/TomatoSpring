@@ -29,6 +29,7 @@ public class SecurityConfig{
         http.authorizeHttpRequests()
                 .requestMatchers(new AntPathRequestMatcher("/article/add")).hasAuthority("USER")
                 .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/swagger-resources/**")).permitAll()
                 .and()
                     .formLogin()
                     .loginPage("/auth/login")

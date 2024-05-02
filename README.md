@@ -3,8 +3,8 @@
 토마토 잎 질병을 CNN 기반 이미지 분류 인공지능을 통해 분석하고 사용자들의 정보 공유를 위한 게시판 기능을 제공
 
 ---------
-
 ### 주요 기능
+
 1. 토마토 잎 질병 분석 및 해결 방안 제시(정확도 98%로 학습시킨 Densenet161 사용)
 
 2. 회원가입 및 로그인 기능
@@ -14,7 +14,7 @@
 4. 주변 마트 검색 기능(Kakao map API 사용)
 
 -------
-//#### 데이터베이스 구조
+#### 데이터베이스 구조
 
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/4dd1c1e8-2177-41a2-96e4-3d35e67dd2e2)
 
@@ -24,6 +24,8 @@
 
 
 -------
+#### 개발 도구
+
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/ebd5e2df-8c0a-45e2-a4a1-aae74fcc1e10)
 
 

@@ -52,6 +52,9 @@
 ![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb)
 
 --------
++++JWT 토큰 활용
+<img width="929" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
+
 (현재 Mac, Desktop으로 노션 정리(코드 리뷰) 및 개발 중)
 
 #### 추가해야할 기능

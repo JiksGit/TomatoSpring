@@ -8,42 +8,98 @@
 </head>
 <body>
 <div th:fragment="nav">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a style="color: green" class="navbar-brand" href="/">TomaTo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/map">Map</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/article">Board</a>
-                </li>
-                <li class="nav-item">
-                    <a sec:authorize="isAnonymous()" class="nav-link"  href="/auth/register">Sign Up</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a style="color: green" class="navbar-brand" href="/">TomaTo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/map">Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/article">Board</a>
+                    </li>
+                    <li class="nav-item">
+                        <a sec:authorize="isAnonymous()" class="nav-link" href="/auth/register">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div style="margin-right: 1rem;">
-        <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/auth/mypage}">
-            <button sec:authorize="isAuthenticated()" class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Mypage</button>
-        </form>
-    </div>
-    <div>
-        <button sec:authorize="isAnonymous()" onclick = "location.href = '/auth/login'" class="btn btn-outline-success my-2 my-sm-0 btn-sm">Login</button>
-        <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/auth/logout}">
-            <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
-        </form>
-    </div>
-</nav>
+<!--        <div style="margin-right: 1rem;">-->
+<!--            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/auth/mypage}">-->
+<!--                <button sec:authorize="isAuthenticated()" class="btn btn-outline-success my-2 my-sm-0 btn-sm" type="submit">Mypage</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <button  sec:authorize="isAnonymous()" onclick="location.href = '/auth/login'" class="btn btn-outline-success my-2 my-sm-0 btn-sm">Login</button>-->
+<!--            <form class="form-inline my-2 my-lg-0" method="post" th:action="@{/auth/logout}">-->
+<!--                <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>-->
+<!--            </form>-->
+<!--        </div>-->
+        <div>
+            <button id="loginButton" onclick="location.href = '/auth/login'" class="btn btn-outline-success my-2 my-sm-0 btn-sm" style="display: none;">Login</button>
+            <form id="logoutForm" class="form-inline my-2 my-lg-0" method="post" th:action="@{/auth/logout}">
+                <button id="logoutButton" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" style="display: none;" type="submit">Logout</button>
+            </form>
+        </div>
+
+    </nav>
 </div>
 </body>
 </html>
+
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--        const token = localStorage.getItem('token'); // 저장된 토큰 가져오기-->
+
+<!--        if (token) {-->
+<!--            // 토큰이 존재할 경우 Logout 버튼 표시-->
+<!--            document.getElementById('logoutForm').style.display = 'block';-->
+<!--            document.getElementById('logoutButton').style.display = 'block'; // Logout 버튼도 표시-->
+<!--        } else {-->
+<!--            // 토큰이 없을 경우 Login 버튼 표시-->
+<!--            document.getElementById('loginButton').style.display = 'block';-->
+<!--        }-->
+<!--    });-->
+<!--</script>-->
+
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function() {-->
+<!--        const token = localStorage.getItem('token'); // 저장된 토큰 가져오기-->
+<!--        if (token) {-->
+<!--            fetchData(token); // JWT 토큰이 있을 경우에만 데이터 요청-->
+<!--        } else {-->
+<!--            // 토큰이 없을 때 로그인 버튼을 보여주거나 기타 처리를 할 수 있습니다.-->
+<!--            alert("토큰 못 가져옴");-->
+<!--        }-->
+<!--    });-->
+
+<!--    function fetchData(token) {-->
+<!--        const url = "/api/data"; // 요청할 API URL-->
+
+<!--        fetch(url, {-->
+<!--            method: "GET",-->
+<!--            headers: {-->
+<!--                "Authorization": `Bearer ${token}`, // JWT 토큰을 Authorization 헤더에 포함-->
+<!--                "Content-Type": "application/json"-->
+<!--            }-->
+<!--        }).then(response => {-->
+<!--            if (!response.ok) {-->
+<!--                throw new Error(`Network response was not ok: ${response.statusText}`);-->
+<!--            }-->
+<!--            return response.json();-->
+<!--        }).then(data => {-->
+<!--            console.log(data); // 필요한 데이터를 처리하는 로직-->
+<!--        }).catch(error => {-->
+<!--            console.error("Error:", error);-->
+<!--            alert("데이터 요청 중 오류 발생: " + error.message); // 오류 메시지 출력-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->

@@ -17,7 +17,6 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -40,7 +39,7 @@ public class JwtTokenProvider {
     }
 
     // JWT 토큰 생성
-    public static String createToken(String UserPk, List<String> roles) {
+    public static String createToken(String UserPk, Role roles) {
         Claims claims = Jwts.claims().setSubject(UserPk); // JWT payload 에 저장되는 정보단위
         claims.put("roles", roles); // 정보는 key / value 쌍으로 저장된다.
         Date now = new Date();
@@ -64,17 +63,22 @@ public class JwtTokenProvider {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
     }
 
-    // Request의 Header에서 token 값을 가져옵니다. "JWT" : "TOKEN값'
     public String resolveToken(HttpServletRequest request) {
-        return request.getHeader("JWT");
+        String bearerToken = request.getHeader("Authorization");
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
     }
 
     // 토큰의 유효성 + 만료일자 확인
     public boolean validateToken(String jwtToken) {
         try {
             Jws<Claims> claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(jwtToken);
+            System.out.println("Token valid until: " + claims.getBody().getExpiration());
             return !claims.getBody().getExpiration().before(new Date());
         } catch (Exception e) {
+            System.out.println("Token validation failed: " + e.getMessage());
             return false;
         }
     }

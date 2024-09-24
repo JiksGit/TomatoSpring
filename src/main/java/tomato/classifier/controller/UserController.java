@@ -19,10 +19,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 //import tomato.classifier.dto.UserDto;
+import org.springframework.web.server.ResponseStatusException;
 import tomato.classifier.dto.ArticleDto;
+import tomato.classifier.dto.UserDto;
 import tomato.classifier.entity.Article;
 import tomato.classifier.entity.User;
 //import tomato.classifier.jwt.JwtTokenProvider;
+import tomato.classifier.jwt.JwtTokenProvider;
 import tomato.classifier.repository.UserRepository;
 //import tomato.classifier.service.UserService;
 import tomato.classifier.user.UserCreateForm;
@@ -30,10 +33,7 @@ import tomato.classifier.user.UserCreateForm;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -43,6 +43,8 @@ public class UserController {
     //JWT 전 코드
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -57,6 +59,24 @@ public class UserController {
     @GetMapping("/login")
     public String login() {
         return "auth/login";
+    }
+
+    // 로그인
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody UserDto userDto) {
+        if (userDto.getUsername() == null || userDto.getPassword() == null) {
+            return ResponseEntity.badRequest().body("유효한 사용자 이름과 비밀번호를 입력하세요.");
+        }
+
+        User member = userRepository.findByUsername(userDto.getUsername())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "가입되지 않은 사용자입니다."));
+
+        if (!passwordEncoder.matches(userDto.getPassword(), member.getPassword())) {
+            return ResponseEntity.badRequest().body("잘못된 비밀번호입니다.");
+        }
+
+        String token = jwtTokenProvider.createToken(member.getUsername(), member.getRole());
+        return ResponseEntity.ok(Collections.singletonMap("token", token));
     }
 
     //회원가입 post
@@ -173,65 +193,6 @@ public class UserController {
 //        return ResponseEntity.status(HttpStatus.OK).body(deleted);
 //    }
 }
-    //JWT 코드
-//    private final PasswordEncoder passwordEncoder;
-//    private final JwtTokenProvider jwtTokenProvider;
-//    private final UserRepository userRepository;
-//    //회원가입
-//    @GetMapping("/register")
-//    public String signup(@ModelAttribute("userCreateForm") UserCreateForm userCreateForm){
-//        return "auth/register";
-//    }
-//    //로그인
-//    @GetMapping("/login")
-//    public String login(){
-//        return "auth/login";
-//    }
-//
-//    // 회원가입 post
-//    @PostMapping("/register")
-//    public String signup(@Valid UserCreateForm userCreateForm, BindingResult bindingResult){
-//        if (bindingResult.hasErrors()){
-//            return "auth/register";
-//        }
-//
-//        if (!userCreateForm.getPassword1().equals(userCreateForm.getPassword2())){
-//            bindingResult.rejectValue("password2", "passwordInCorrect",
-//                    "2개의 패스워드가 일치하지 않습니다.");
-//            return "auth/register";
-//        }
-//
-//        try {
-//            User user = User.convertEntity(userCreateForm);
-//            userRepository.save(user);
-//        } catch(DataIntegrityViolationException e){
-//            e.printStackTrace();
-//            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
-//            return "auth/register";
-//        } catch(Exception e){
-//            e.printStackTrace();
-//            bindingResult.reject("signupFailed", e.getMessage());
-//            return "auth/register";
-//        }
-//
-//        return "redirect:/";
-//    }
 
-//    // 로그인
-//    @PostMapping("/login")
-//    public ResponseEntity<String> login(@RequestBody UserDto userDto) {
-//        if (userDto.getUsername() == null || userDto.getPassword() == null) {
-//            return ResponseEntity.badRequest().body("유효한 사용자 이름과 비밀번호를 입력하세요.");
-//        }
-//
-//        User member = userRepository.findByUsername(userDto.getUsername())
-//                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 사용자입니다."));
-//
-//        if (!passwordEncoder.matches(userDto.getPassword(), member.getPassword())) {
-//            return ResponseEntity.badRequest().body("잘못된 비밀번호입니다.");
-//        }
-//
-//        String token = jwtTokenProvider.createToken(member.getUsername(), member.getRole());
-//        return ResponseEntity.ok().body(token);
-//    }
+
 

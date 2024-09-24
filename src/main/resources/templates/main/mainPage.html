@@ -84,3 +84,54 @@
         }
     })
 </script>
+
+<script>
+    // localStorage 토큰 가져오기
+    document.addEventListener("DOMContentLoaded", function() {
+        const token = localStorage.getItem('token'); // 저장된 토큰 가져오기
+        if (token) {
+            fetchData(token); // JWT 토큰이 있을 경우에만 데이터 요청
+        } else {
+            // 토큰이 없을 때 로그인 버튼을 보여주거나 기타 처리를 할 수 있습니다.
+            alert("토큰 못 가져옴");
+        }
+    });
+
+    function fetchData(token) {
+        const url = "/api/data"; // 요청할 API URL
+
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`, // JWT 토큰을 Authorization 헤더에 포함
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.statusText}`);
+            }
+            return response.json();
+        }).then(data => {
+            console.log(data); // 필요한 데이터를 처리하는 로직
+        }).catch(error => {
+            console.error("Error:", error);
+            alert("데이터 요청 중 오류 발생: " + error.message); // 오류 메시지 출력
+        });
+    }
+</script>
+
+<script>
+    // 토큰 확인 후 login, logout 보여주기
+    document.addEventListener("DOMContentLoaded", function() {
+        const token = localStorage.getItem('token'); // 저장된 토큰 가져오기
+
+        if (token) {
+            // 토큰이 존재할 경우 Logout 버튼 표시
+            document.getElementById('logoutForm').style.display = 'block';
+            document.getElementById('logoutButton').style.display = 'block'; // Logout 버튼도 표시
+        } else {
+            // 토큰이 없을 경우 Login 버튼 표시
+            document.getElementById('loginButton').style.display = 'block';
+        }
+    });
+</script>

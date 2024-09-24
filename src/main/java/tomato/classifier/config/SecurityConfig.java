@@ -14,48 +14,58 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-//import tomato.classifier.jwt.JwtAuthenticationFilter;
-//import tomato.classifier.jwt.JwtTokenProvider;
+import tomato.classifier.jwt.JwtAuthenticationFilter;
+import tomato.classifier.jwt.JwtTokenProvider;
 
 import static org.hibernate.criterion.Restrictions.and;
 
 ////JWT 쓰기전 코드
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig{
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final JwtTokenProvider jwtTokenProvider;
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable();
-        http.authorizeHttpRequests()
+        http
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 세션을 사용하지 않음
+                .and()
+                .authorizeHttpRequests()
                 .requestMatchers(new AntPathRequestMatcher("/article/add")).hasAuthority("USER")
-                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/auth/login")).permitAll() // 로그인 요청 허용
+                .requestMatchers(new AntPathRequestMatcher("/**")).permitAll() // 나머지 요청 허용
                 .and()
-                    .formLogin()
-                    .loginPage("/auth/login")
-                    .defaultSuccessUrl("/")
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
                 .and()
-                    .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout"))
-                    .logoutSuccessUrl("/")
-                    .invalidateHttpSession(true)
-        ;
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class); // JWT 필터 추가
+
         return http.build();
     }
 
     @Bean
-    PasswordEncoder passwordEncoder(){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }
 
 
+
+
 //JWT코드
 //@RequiredArgsConstructor
 //@EnableWebSecurity
+//@Configuration
 //public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //
 //    private final JwtTokenProvider jwtTokenProvider;
@@ -66,7 +76,6 @@ public class SecurityConfig{
 //    public AuthenticationManager authenticationManagerBean() throws Exception {
 //        return super.authenticationManagerBean();
 //    }
-//
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http

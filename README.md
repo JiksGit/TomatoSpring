@@ -54,12 +54,8 @@
 --------
 +++JWT 토큰 활용
 <img width="929" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
+-> 로그아웃 했을때는 login 창, 로그인 했을 때는 logout 창 구현 (localStorage에서 토큰 인증 완료)
 
-(현재 Mac, Desktop으로 노션 정리(코드 리뷰) 및 개발 중)
-
-#### 추가해야할 기능
-1. JWT 토큰 사용, 스프링 시큐리티 코드 개선
-2. 게시판 페이지, 검색 백엔드 기능 추가
-
-Desktop : aws 재연결
+# 추가해야할 기능 
+Docker 활용한 배포
 

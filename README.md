@@ -22,15 +22,17 @@
 -------
 #### API 명세서(Swagger 사용)
 
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/6bbf5e40-2bfc-4208-ae7b-66b9512c7045)
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/5192135e-0cba-4c96-a36c-6ef3263bfd68)
+<img width="350" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/6bbf5e40-2bfc-4208-ae7b-66b9512c7045">
+
+<img width="350" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/5192135e-0cba-4c96-a36c-6ef3263bfd68">
+
 
 
 
 -------
 #### 개발 도구
 
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/ebd5e2df-8c0a-45e2-a4a1-aae74fcc1e10)
+<img width="1000" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/ebd5e2df-8c0a-45e2-a4a1-aae74fcc1e10">
 
 
 -------
@@ -39,21 +41,23 @@
 
 -------
 #### 2. 회원가입 및 로그인 기능
-<img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
-<img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
+<img width="450" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
+<img width="450" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
 
 -------
 #### 3. 게시판 작성 및 댓글 기능
-<img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
-<img width="800" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
+<img width="400" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
+<img width="400" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
 
 -------
 #### 4. 주변 농협마트 검색 기능
-![image](https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb)
+
+<img width="700" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb">
 
 --------
 +++JWT 토큰 활용
-<img width="929" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
+<img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
+
 -> 로그아웃 했을때는 login 창, 로그인 했을 때는 logout 창 구현 (localStorage에서 토큰 인증 완료)
 
 # 추가해야할 기능 

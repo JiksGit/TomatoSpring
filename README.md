@@ -61,5 +61,6 @@
 -> 로그아웃 했을때는 login 창, 로그인 했을 때는 logout 창 구현 (localStorage에서 토큰 인증 완료)
 
 # 추가해야할 기능 
+페이징 기능
 Docker 활용한 배포
 

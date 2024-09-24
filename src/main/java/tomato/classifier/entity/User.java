@@ -42,13 +42,10 @@ public class User implements UserDetails {
     private Role role;
 
 //    //JWT
-//    @Enumerated(EnumType.STRING)
-//    @Column(nullable = false)
-//    private Role role;
-//    //JWT
 //    @ElementCollection(fetch = FetchType.EAGER)
 //    @Builder.Default
 //    private List<String> roles = new ArrayList<>();
+
     public void patch(User user) {
         if (user.getUsername() != "") {
             this.username = user.getUsername();

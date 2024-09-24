@@ -17,7 +17,7 @@
             <h1 style="padding: 2px;">로그인</h1>
         </div>
     </div>
-    <form style="margin-bottom: 10rem;" th:action="@{/auth/login}" method="post">
+    <form id="loginForm" style="margin-bottom: 10rem;">
         <div th:if="${param.error}">
             <div class="alert alert-danger">
                 사용자ID 또는 비밀번호를 확인해 주세요.
@@ -43,28 +43,37 @@
 </html>
 
 
-<!--<script>-->
-<!--    const submitBtn = document.querySelector("#submitBtn");-->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginForm = document.querySelector("#loginForm");
 
-<!--    submitBtn.addEventListener("click", function(){-->
-<!--        const userDto = {-->
-<!--            username : document.querySelector("#username").value,-->
-<!--            password : document.querySelector("#password").value-->
-<!--        }-->
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // 폼의 기본 제출 동작을 막음
 
-<!--        const url = "/auth/login";-->
-<!--        fetch(url,{-->
-<!--            method: "POST",-->
-<!--            body : JSON.stringify(userDto),-->
-<!--            headers : {-->
-<!--                "Content-Type": "application/json"-->
-<!--            }-->
-<!--        }).then(response => {-->
-<!--            const msg = (response.ok) ? "로그인 완료" : "오류 발생"-->
-<!--            alert(msg);-->
+            const userDto = {
+                username: document.querySelector("#username").value,
+                password: document.querySelector("#password").value
+            }
 
-<!--            window.location.href ="/";-->
-<!--        })-->
-<!--    })-->
-<!--</script>-->
+            const url = "/auth/login";
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify(userDto),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(response => {
+                const msg = (response.ok) ? "로그인 완료" : "오류 발생";
+                alert(msg);
+
+                if (response.ok) {
+                    window.location.href = "/";
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+                alert("오류 발생");
+            });
+        });
+    });
+</script>
 

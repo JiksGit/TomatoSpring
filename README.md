@@ -56,10 +56,11 @@
 
 --------
 +++JWT 토큰 활용 ++ DOCKER를 활용한 AWS 배포 완료
+
 <img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/64b71a82-32be-43cb-8d9e-ead712390720/image.png)
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/f4291ef2-5523-4337-b383-f205b1f5248d">
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/6e80b9e9-4b8d-4274-9a84-9a439ae44c10/image.png)
+<img width="704" alt="image" src="https://github.com/user-attachments/assets/578c8530-6df3-4ea4-8e56-692d9d8389bc">
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/1492b5b8-138e-4dc4-89b2-b8a70d209570/image.png)
+<img width="707" alt="image" src="https://github.com/user-attachments/assets/212674c1-48e4-47d8-940b-eab90d418d95">

@@ -55,12 +55,11 @@
 <img width="700" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb">
 
 --------
-+++JWT 토큰 활용
++++JWT 토큰 활용 ++ DOCKER를 활용한 AWS 배포 완료
 <img width="600" alt="image" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/1ba998b9-8bb7-4de4-a032-c6ceb3639d87">
 
--> 로그아웃 했을때는 login 창, 로그인 했을 때는 logout 창 구현 (localStorage에서 토큰 인증 완료)
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/64b71a82-32be-43cb-8d9e-ead712390720/image.png)
 
-# 추가해야할 기능 
-- Docker 구현 완료 -> AWS 배포
-- JWT logout 실패 부분 변경, 모든페이지 JWT 토큰 인증 구현
-- 페이징 기능 변경
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/6e80b9e9-4b8d-4274-9a84-9a439ae44c10/image.png)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/c4b2ef4b-0c4d-452f-990f-7512fcae1619/1492b5b8-138e-4dc4-89b2-b8a70d209570/image.png)

@@ -57,48 +57,10 @@ Docker 기반으로 AWS EC2에 배포된 **AI + Spring Boot 통합 서비스**�
 
 ## 🧾 시스템 구조
 
-[사용자] → [Spring Boot 서버] → [Flask AI 서버] → [DenseNet161 모델]
-↓
-[MySQL DB]
-↓
-[AWS EC2 배포]
-
-
 - **Spring Boot**: 회원, 게시판, 인증, 요청 처리  
 - **Flask API**: 이미지 업로드 → AI 예측 결과 반환  
 - **AWS EC2 + Docker**: 웹·AI 서버 컨테이너화 및 자동 배포  
 - **MySQL**: 사용자 및 질병 데이터 관리  
-
----
-
-## 🧱 데이터베이스 구조
-
-![Database Diagram](https://github.com/JiksGit/TomatoSpring/assets/96871403/52b7bde0-b371-4165-8bb3-c5176908008a)
-
----
-
-## 🔍 API 명세서 (Swagger)
-
-<img width="350" alt="Swagger1" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/6bbf5e40-2bfc-4208-ae7b-66b9512c7045">
-<img width="350" alt="Swagger2" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/5192135e-0cba-4c96-a36c-6ef3263bfd68">
-
----
-
-## 💡 주요 화면
-
-### 1️⃣ 토마토 잎 질병 분석
-<img width="800" alt="AI Result" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/18856706-28d6-4ee1-99c5-1c1fc1053b41">
-
-### 2️⃣ 회원가입 및 로그인
-<img width="450" alt="Signup" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/b4023570-8e24-4a5f-b495-7d0453649261">
-<img width="450" alt="Login" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/fccb2c73-f5c2-4817-9805-adc8b9804ff3">
-
-### 3️⃣ 게시판 및 댓글 기능
-<img width="400" alt="Board" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/dcc6deac-20ed-497d-b3e4-145eda88d770">
-<img width="400" alt="Comment" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/00f16ec0-3355-41fc-894d-4c1c07e20d5a">
-
-### 4️⃣ 주변 농협마트 검색
-<img width="700" alt="Map" src="https://github.com/JiksGit/TomatoSpring/assets/96871403/a99ac206-fda9-43a2-80c6-1ba5952681bb">
 
 ---
 
